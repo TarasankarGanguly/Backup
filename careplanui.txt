@@ -1,0 +1,24 @@
+package uilocater;
+
+import org.openqa.selenium.By;
+
+public class CarePlanUI {
+    public static By updatecitycancel = By.xpath("//div[text()='Cancel']");
+    public static By careplan = By.xpath("//div[@class='no-animate styles__jewel_doctor___20u4S styles__care_plan_doctor___1j_aU']/preceding-sibling::div");
+    public static By knowus = By.xpath("(//div/h3)[1]");
+    public static By PressCoverage = By.xpath("//a[@href='/press-coverage']/span");
+    public static By twentyseventeen = By.xpath("(//div[@class='style__year-link___2n3Hj']/following-sibling::div)[1]");
+    public static By firstArticle = By.xpath("//a[@href='https://techcircle.vccircle.com/2017/02/08/ads-for-content-digital-health-tools-are-in-the-works-for-2017-1mgs-tandon/']");
+    public static By People = By.xpath("(//a[@href='https://www.techcircle.in/category/people'])[3]");
+    public static By Newsletter = By.xpath("//li[@class='ico-community']/following-sibling::li/following-sibling::li/a");
+    public static By dailynewletter = By.xpath("//input[@id='box-7']/preceding-sibling::label");
+    public static By inputsubscribe = By.xpath("(//div[@class='search-input']/input)[2]");
+    public static By subscribe = By.id("btn_nletter_subs");
+    public static By crossbutton = By.xpath("//span[@id='nl-close']");
+    public static By diabetics = By.xpath("(//div[@class='style__container___39fE1']/a)[1]");
+    public static By BloodGlucose = By.xpath("(//a[@href='/categories/diabetes/blood-glucose-monitors-151'])[2]");
+    public static By brands = By.xpath("(//div[@class='style__search-box-container___11g3H']/preceding-sibling::div)[1]");
+    public static By brandsinput = By.xpath("//input[@placeholder='Search Brands']");
+    public static By tata = By.xpath("(//span[@class='style__filter-name___A2BgE']/span)[1]");
+    public static By tatamg = By.xpath("(//span[text()='Tata 1mg'])[1]");
+}

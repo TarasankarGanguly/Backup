@@ -1,0 +1,66 @@
+package stepdefinition;
+
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pages.CarePlan;
+import utils.Base;
+
+public class CarePlanSteps extends Base{
+    CarePlan obj = new CarePlan(driver);
+    @When("I click on cancel update city")
+    public void i_click_on_cancel_update_city() {
+        obj.updateCancel();
+    }
+    @When("I click on Care plan above the search bar")
+    public void i_click_on_care_plan_above_the_search_bar() {
+        obj.selectCarePlan();
+    }
+    @When("I click on Press Coverage under the Know Us section")
+    public void i_click_on_press_coverage_under_the_know_us_section() {
+        obj.scrollDownandClickPressCoverage();
+    }
+    @When("I click on twentyseventeen")
+    public void i_click_on_twentyseventeen() {
+        obj.selectTwentyseventeen();
+    }
+    @When("I click on first article")
+    public void i_click_on_first_article() {
+        obj.selectfirstArticle();
+    }
+    @When("I switched tab and select people")
+    public void i_switched_tab_and_select_people() {
+        obj.switchTabAndSelectPeople();
+    }
+    @When("I click on Newsletter on the left side of the page")
+    public void i_click_on_newsletter_on_the_left_side_of_the_page() {
+        obj.clickOnNewsletter();
+    }
+    @When("I click on Daily newsletter to uncheck the checkbox")
+    public void i_click_on_daily_newsletter_to_uncheck_the_checkbox() {
+        obj.clickOnDailyNewLetter();
+    }
+    @When("I input {string} in the email field")
+    public void i_input_in_the_email_field(String string) {
+        obj.enterDataAndPressSub(string);
+    }
+    @When("I clicked cross and navigate to homepage")
+    public void i_clicked_cross_and_navigate_to_homepage() {
+        obj.crossClikedAndNavigateToFirst();
+    }
+    @When("I hover on Diabetes on the navigation bar")
+    public void i_hover_on_diabetes_on_the_navigation_bar() {
+        obj.clickedDibetics();
+    }
+    @When("I click on Blood Glucose Monitors")
+    public void i_click_on_blood_glucose_monitors() {
+        obj.clickedBloodGlucose();
+    }
+    @When("I input {string} in the search box field of the Brands filter")
+    public void i_input_in_the_search_box_field_of_the_brands_filter(String string) {
+        obj.clickOnTata(string);
+    }
+    @Then("I click on the checkbox of Tata onemg")
+    public void i_click_on_the_checkbox_of_tata_1mg() {
+        obj.verifyingAndScreenshot();
+    }
+}

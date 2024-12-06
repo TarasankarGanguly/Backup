@@ -1,0 +1,12 @@
+package runner;
+ 
+import org.junit.runner.RunWith;
+ 
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+ 
+@RunWith(Cucumber.class)
+@CucumberOptions(features="features",glue={"stepdefinition"},tags = "@Senario_subscribe_to_the_newsletter or @Senario_Fake_Jobs_and_Fraud")
+public class TestRunner {
+ 
+}

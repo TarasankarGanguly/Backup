@@ -1,0 +1,127 @@
+package utils;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.assertj.core.api.SoftAssertions;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.aventstack.extentreports.Status;
+
+import stepdefinition.Hooks;
+
+import java.time.Duration;
+import java.util.Set;
+
+public class WebDriverHelper {
+    private WebDriver driver;
+
+    public WebDriverHelper(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void waitForElementToBeVisible(By locator, int timeoutInSeconds) {
+            new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds))
+                    .until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public void clickOnElement(By locator) {
+            WebElement webElement = driver.findElement(locator);
+            webElement.click();
+    }
+
+    public void sendKeys(By locator, String data) {
+            WebElement webElement = driver.findElement(locator);
+            webElement.sendKeys(data);
+    }
+
+    public String getText(By locator) {
+        try {
+            WebElement webElement = driver.findElement(locator);
+            return webElement.getText();
+        } catch (Exception e) {
+            // Handle or rethrow the exception here
+            e.getMessage();
+            return null;
+        }
+    }
+
+    public void jsClick(By locator) {
+        try {
+            WebElement element = driver.findElement(locator);
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click();", element);
+        } catch (Exception e) {
+            // Handle or rethrow the exception here
+            e.getMessage();
+        }
+    }
+
+    public void javascriptScroll(By locator) {
+        try {
+            WebElement element = driver.findElement(locator);
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].scrollIntoView();", element);
+        } catch (Exception e) {
+            // Handle or rethrow the exception here
+            e.getMessage();
+        }
+    }
+
+    public void switchToNewWindow() {
+        try {
+            Set<String> windowHandles = driver.getWindowHandles();
+            for (String windowHandle : windowHandles) {
+                if (!windowHandle.isEmpty()) {
+                    driver.switchTo().window(windowHandle);
+                } else {
+                    throw new Exception("New window could not be retrieved");
+                }
+            }
+        } catch (Exception e) {
+            // Handle or rethrow the exception here
+            e.getMessage();
+        }
+    }
+
+    public void switchToParentWindow(String parent) {
+            driver.switchTo().window(parent);
+    }
+
+    public void pauseAction(int seconds) throws InterruptedException {
+            Thread.sleep(seconds * 1000);
+    }
+
+    public void enterAction(By locator) {
+            WebElement webElement = driver.findElement(locator);
+            webElement.sendKeys(Keys.ENTER);
+    }
+
+    public void hoverOverElement(By locator) {
+            WebElement webElement = driver.findElement(locator);
+            Actions actions = new Actions(driver);
+            actions.moveToElement(webElement).perform();
+    }
+
+    public void driveRefresh() {
+            driver.navigate().refresh();
+    }
+
+    public void assertCheck(By locator, String string) {
+            String actual = getText(locator);
+            Assert.assertTrue(actual.contains(string));
+    }
+
+    public void softAssertions(By locator, String expected) {
+            SoftAssertions softAssertions = new SoftAssertions();
+            String actual = getText(locator);
+            // System.out.println(actual);
+            softAssertions.assertThat(actual).contains(expected);
+    }    
+
+}

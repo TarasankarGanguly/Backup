@@ -1,0 +1,297 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import com.aventstack.extentreports.Status;
+import stepdefinition.Hooks;
+import uilocater.CarePlanUI;
+import utils.LoggerHandler;
+import utils.Reporter;
+import utils.Screenshots;
+import utils.WebDriverHelper;
+
+public class CarePlan {
+    WebDriver driver;
+    WebDriverHelper helper;
+
+    public CarePlan(WebDriver driver) {
+        this.driver = driver;
+        helper = new WebDriverHelper(driver);
+    }
+    String firsthandle;
+    public void updateCancel() {
+        try {
+            helper.driveRefresh();
+            firsthandle = driver.getWindowHandle();
+            LoggerHandler.info("Update city pop up canceled");
+            Hooks.test.log(Status.PASS, "Update city pop up canceled");
+        } catch (Exception e) {
+            LoggerHandler.error("Update city pop up not canceled");
+            Hooks.test.log(Status.FAIL, "Update city pop up not canceled");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Update city pop up not canceled");
+        }
+    }
+
+
+    public void selectCarePlan() {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.careplan, 20);
+            helper.softAssertions(CarePlanUI.careplan,"CARE PLAN");
+            helper.clickOnElement(CarePlanUI.careplan);
+            LoggerHandler.info("CarePlan clicked successfully");
+            Hooks.test.log(Status.PASS, "CarePlan clicked successfully");
+        } catch (Exception e) {
+            LoggerHandler.error("CarePlan clicked unsuccessful");
+            Hooks.test.log(Status.FAIL, "CarePlan clicked unsuccessful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "CarePlan clicked unsuccessful");
+        }
+        try {
+            helper.switchToNewWindow();
+            LoggerHandler.info("Switch handle successfully");
+            Hooks.test.log(Status.PASS, "Update city pop up canceled");
+        } catch (Exception e) {
+            LoggerHandler.error("Switch handle unsuccessful");
+            Hooks.test.log(Status.FAIL, "Switch handle unsuccessful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Switch handle unsuccessful");
+        }
+    }
+
+
+    public void scrollDownandClickPressCoverage() {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.knowus, 20);
+            helper.javascriptScroll(CarePlanUI.knowus);
+            LoggerHandler.info("Scrolled to know us");
+            Hooks.test.log(Status.PASS, "Scrolled to know us");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Scrolled to know us");
+            Hooks.test.log(Status.FAIL, "Not Scrolled to know us");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Not Scrolled to know us");
+        }
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.PressCoverage, 20);
+            helper.softAssertions(CarePlanUI.PressCoverage,"Press Coverage");
+            helper.clickOnElement(CarePlanUI.PressCoverage);
+            LoggerHandler.info("Clicked press Coverage");
+            Hooks.test.log(Status.PASS, "Clicked press Coverage");
+        } catch (Exception e) {
+            LoggerHandler.error("Press Coverage not clicked");
+            Hooks.test.log(Status.FAIL, "Press Coverage not clicked");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Press Coverage not clicked");
+        }
+    }
+
+
+    public void selectTwentyseventeen() {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.twentyseventeen, 20);
+            helper.softAssertions(CarePlanUI.twentyseventeen,"2017");
+            helper.clickOnElement(CarePlanUI.twentyseventeen);
+            LoggerHandler.info("2017 clicked");
+            Hooks.test.log(Status.PASS, "2017 clicked");
+        } catch (Exception e) {
+            LoggerHandler.error("2017 not clicked");
+            Hooks.test.log(Status.FAIL, "2017 not clicked");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "2017 not clicked");
+
+        }
+    }
+
+
+    public void selectfirstArticle() {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.firstArticle, 20);
+            helper.clickOnElement(CarePlanUI.firstArticle);
+            LoggerHandler.info("First article clicked");
+            Hooks.test.log(Status.PASS, "First article clicked");
+        } catch (Exception e) {
+            LoggerHandler.error("First article not clicked");
+            Hooks.test.log(Status.FAIL, "First article not clicked");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "First article not clicked");
+        }
+    }
+    
+
+    public void switchTabAndSelectPeople() {
+        try {
+            helper.switchToNewWindow();
+            LoggerHandler.info("Switch window successful");
+            Hooks.test.log(Status.PASS, "Switch window successful");
+        } catch (Exception e) {
+            LoggerHandler.error("Switch window not successful");
+            Hooks.test.log(Status.FAIL, "Switch window not successful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Switch window not successful");
+        }
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.People, 20);
+            helper.softAssertions(CarePlanUI.People,"PEOPLE");
+            helper.clickOnElement(CarePlanUI.People);
+            LoggerHandler.info("Clicked on people successful");
+            Hooks.test.log(Status.PASS, "Clicked on people successful");
+        } catch (Exception e) {
+            LoggerHandler.error("Clicked on people not successful");
+            Hooks.test.log(Status.FAIL, "Clicked on people not successful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Clicked on people not successful");
+
+        }
+    }
+
+
+    public void clickOnNewsletter() {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.Newsletter, 20);
+            helper.softAssertions(CarePlanUI.Newsletter,"NEWSLETTER");
+            helper.clickOnElement(CarePlanUI.Newsletter);
+            LoggerHandler.info("Clicked on newletter successful");
+            Hooks.test.log(Status.PASS, "Clicked on newletter successful");
+        } catch (Exception e) {
+            LoggerHandler.error("Clicked on newletter not successful");
+            Hooks.test.log(Status.FAIL, "Clicked on newletter not successful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Clicked on newletter not successful");
+        }
+    }
+
+
+    public void clickOnDailyNewLetter() {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.dailynewletter, 20);
+            helper.softAssertions(CarePlanUI.dailynewletter,"Daily Newsletter");
+            helper.clickOnElement(CarePlanUI.dailynewletter);
+            LoggerHandler.info("Clicked on daily new letter successful");
+            Hooks.test.log(Status.PASS, "Clicked on daily new letter successful");
+        } catch (Exception e) {
+            LoggerHandler.error("Clicked on daily new letter not successful");
+            Hooks.test.log(Status.FAIL, "Clicked on daily new letter not successful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Clicked on daily new letter not successful");
+        }
+    }
+
+
+    public void enterDataAndPressSub(String string) {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.inputsubscribe, 20);
+            helper.sendKeys(CarePlanUI.inputsubscribe, string);
+            LoggerHandler.info("data entered successful");
+            Hooks.test.log(Status.PASS, "data entered successfu");
+        } catch (Exception e) {
+            LoggerHandler.error("data entered not successful");
+            Hooks.test.log(Status.FAIL, "data entered not successful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "data entered not successful");
+        }
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.subscribe, 20);
+            helper.clickOnElement(CarePlanUI.subscribe);
+            LoggerHandler.info("Clicked on Subscribe successful");
+            Hooks.test.log(Status.PASS, "Clicked on Subscribe successful");
+        } catch (Exception e) {
+            LoggerHandler.error("Clicked on Subscribe not successful");
+            Hooks.test.log(Status.FAIL, "Clicked on Subscribe not successful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Clicked on Subscribe not successful");
+        }
+    }
+
+
+    public void crossClikedAndNavigateToFirst() {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.crossbutton, 20);
+            helper.clickOnElement(CarePlanUI.crossbutton);
+            LoggerHandler.info("Clicked on crossbutton successful");
+            Hooks.test.log(Status.PASS, "Clicked on crossbutton successful");
+        } catch (Exception e) {
+            LoggerHandler.error("Clicked on crossbutton not successful");
+            Hooks.test.log(Status.FAIL, "Clicked on crossbutton not successful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Clicked on crossbutton not successful");
+        }
+        try {
+            helper.switchToParentWindow(firsthandle);
+            LoggerHandler.info("Switch window to Parent window successful");
+            Hooks.test.log(Status.PASS, "Switch window to Parent window successful");
+            Reporter.captureScreenshotAsBase64(driver, "abc");
+        } catch (Exception e) {
+            LoggerHandler.error("Switch window to parent window not successful");
+            Hooks.test.log(Status.FAIL, "Switch window to parent window not successful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Switch window to parent window not successful");
+        }
+    }
+
+
+    public void clickedDibetics() {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.diabetics, 20);
+            helper.hoverOverElement(CarePlanUI.diabetics);
+            helper.softAssertions(CarePlanUI.diabetics,"Diabetes");
+            helper.clickOnElement(CarePlanUI.diabetics);
+            LoggerHandler.info("Clicked on diabetics successful");
+            Hooks.test.log(Status.PASS, "Clicked on diabetics successful");
+        } catch (Exception e) {
+            LoggerHandler.error("Clicked on diabetics not successful");
+            Hooks.test.log(Status.FAIL, "Clicked on diabetics not successful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Clicked on diabetics not successful");
+        }
+    }
+
+
+    public void clickedBloodGlucose() {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.BloodGlucose, 20);
+            helper.softAssertions(CarePlanUI.BloodGlucose,"Blood Glucose Monitors");
+            helper.clickOnElement(CarePlanUI.BloodGlucose);
+            LoggerHandler.info("Clicked on BloodGlucose successful");
+            Hooks.test.log(Status.PASS, "Clicked on BloodGlucose successful");
+        } catch (Exception e) {
+            LoggerHandler.error("Clicked on BloodGlucose not successful");
+            Hooks.test.log(Status.FAIL, "Clicked on BloodGlucose not successful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Clicked on BloodGlucose not successful");
+        }
+    }
+
+
+    public void clickOnTata(String string) {
+        try {
+            helper.waitForElementToBeVisible(CarePlanUI.brandsinput, 20);
+            helper.sendKeys(CarePlanUI.brandsinput, string);
+            LoggerHandler.info("tata input in brands");
+            helper.waitForElementToBeVisible(CarePlanUI.tata, 20);
+            helper.clickOnElement(CarePlanUI.tata);
+            LoggerHandler.info("Clicked on tata successful");
+            Hooks.test.log(Status.PASS, "Clicked on tata successful");
+        } catch (Exception e) {
+            LoggerHandler.error("Clicked on tata is unsuccessful");
+            Hooks.test.log(Status.FAIL, "Clicked on tata is unsuccessful");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Clicked on tata is unsuccessful");
+        }
+    }
+
+
+    public void verifyingAndScreenshot() {
+        try {
+            helper.assertCheck(CarePlanUI.tatamg, "Tata 1mg");
+            Screenshots.captureScreenShot("Tata 1mg");
+            LoggerHandler.info("Successfully captured");
+            Hooks.test.log(Status.PASS, "Successfully captured");
+        } catch (Exception e) {
+            e.printStackTrace();
+            LoggerHandler.info("Not Successfully in capturing screenshot");
+            Hooks.test.log(Status.FAIL, "Not Successfully in capturing screenshot");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Not Successfully in capturing screenshot");
+        }
+    }
+}

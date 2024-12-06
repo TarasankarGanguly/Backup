@@ -1,0 +1,18 @@
+Feature: Exploring the PartnerShips and testing Functionality
+Background:I open the URL
+Given I open the URL
+
+@Senario_Fake_Jobs_and_Fraud
+Scenario: Navigate through 1mg website and check Fake Jobs and Fraud
+When I click on cancel on update city
+And I click partnerShips and Scrolled To Fake Jobs and Fraud
+And I scrolled Down To Know us And Clicked On Career
+And I click on ViewOpening
+And I click on InputField and enter "Executive"
+And I click on Select Department and select Pharmacy Supply Chain
+And I click on Location and select first checkbox
+And I click on Experience and select Fresher
+And I click on to Field select three
+And I click on select Employee Field and select Full Time Employee
+And I click on Apply Here
+Then I verify Login And take Screenshot

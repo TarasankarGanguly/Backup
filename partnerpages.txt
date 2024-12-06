@@ -1,0 +1,249 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import com.aventstack.extentreports.Status;
+import stepdefinition.Hooks;
+import uilocater.PartnerShipsUI;
+import utils.LoggerHandler;
+import utils.Reporter;
+import utils.Screenshots;
+import utils.WebDriverHelper;
+
+public class PartnerShips {
+    WebDriver driver;
+    WebDriverHelper helper;
+
+    public PartnerShips(WebDriver driver) {
+        this.driver = driver;
+        helper = new WebDriverHelper(driver);
+    }
+
+    public void updateCancel() {
+        try {
+            helper.driveRefresh();
+            LoggerHandler.info("Update city pop up canceled");
+            Hooks.test.log(Status.PASS, "Update city pop up canceled");
+        } catch (Exception e) {
+            LoggerHandler.error("Update city pop up not canceled");
+            Hooks.test.log(Status.FAIL, "Update city pop up not canceled");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Update city pop up not canceled");
+        }
+    }
+
+
+    public void partnerShipsClickedAndScrolledToFakeJobsAndFraud() {
+        try {
+            helper.waitForElementToBeVisible(PartnerShipsUI.partnership, 20);
+            helper.softAssertions(PartnerShipsUI.partnership,"PARTNERSHIPS");
+            helper.clickOnElement(PartnerShipsUI.partnership);
+            LoggerHandler.info("Clicked on Partnerships");
+            Hooks.test.log(Status.PASS, "Clicked on Partnerships");
+            helper.switchToNewWindow();
+            helper.javascriptScroll(PartnerShipsUI.tailored);
+            helper.pauseAction(2);
+            helper.javascriptScroll(PartnerShipsUI.Ourpolicies);
+            helper.pauseAction(2);
+            helper.clickOnElement(PartnerShipsUI.FakeJobsandFraud);
+            helper.switchToNewWindow();
+            LoggerHandler.info("Clicked on Fake Jobs and Fraud under the Our Policies section.");
+            Hooks.test.log(Status.PASS, "Clicked on Fake Jobs and Fraud under the Our Policies section.");
+        } catch (InterruptedException e) {
+            LoggerHandler.error("Not Clicked on Partnerships and Fake Jobs and Fraud under the Our Policies section.");
+            Hooks.test.log(Status.FAIL, "Not Clicked on Partnerships and Fake Jobs and Fraud under the Our Policies section.");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath,
+                    "Not Clicked on Fake Jobs and Fraud under the Our Policies section.");
+        }
+    }
+
+
+    public void scrolledDownToKnowusAndClickedOnCareer() {
+        try {
+            helper.javascriptScroll(PartnerShipsUI.Knowus);
+            helper.waitForElementToBeVisible(PartnerShipsUI.career, 20);
+            helper.softAssertions(PartnerShipsUI.career,"Careers");
+            helper.clickOnElement(PartnerShipsUI.career);
+            LoggerHandler.info("Click on Careers under the Know Us section.");
+            Hooks.test.log(Status.PASS, "Click on Careers under the Know Us section.");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Click on Careers under the Know Us section.");
+            Hooks.test.log(Status.FAIL, "Not Click on Careers under the Know Us section.");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Not Click on Careers under the Know Us section.");
+        }
+    }
+
+
+    public void clickedOnViewOpening() {
+        try {
+            helper.waitForElementToBeVisible(PartnerShipsUI.viewOpening, 20);
+            helper.softAssertions(PartnerShipsUI.viewOpening,"View Openings");
+            helper.clickOnElement(PartnerShipsUI.viewOpening);
+            helper.switchToNewWindow();
+            LoggerHandler.info("Click on View Openings");
+            Hooks.test.log(Status.PASS, "Click on View Openings");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Click on View Openings");
+            Hooks.test.log(Status.FAIL, "Not Click on View Openings");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Not Click on View Openings");
+        }
+    }
+
+
+    public void clickedOnInputField(String data) {
+        try {
+            helper.waitForElementToBeVisible(PartnerShipsUI.inputfield, 20);
+            helper.clickOnElement(PartnerShipsUI.inputfield);
+            helper.sendKeys(PartnerShipsUI.inputfield, data);
+            LoggerHandler.info("Click on input field and updated the value");
+            Hooks.test.log(Status.PASS, "Click on input field and updated the value");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Click on input field and updated the value");
+            Hooks.test.log(Status.FAIL, "Not Click on input field and updated the value");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Not Click on input field and updated the value");
+        }
+    }
+
+
+    public void clickOnSelectDepart() {
+        try {
+            helper.waitForElementToBeVisible(PartnerShipsUI.selectdept, 20);
+            helper.softAssertions(PartnerShipsUI.selectdept,"Please select");
+            helper.clickOnElement(PartnerShipsUI.selectdept);
+            LoggerHandler.info("Clicked On select department under the Select Department Hierarchy field.");
+            Hooks.test.log(Status.PASS, "Clicked On select department under the Select Department Hierarchy field.");
+            helper.waitForElementToBeVisible(PartnerShipsUI.Pharmacychain, 20);
+            helper.softAssertions(PartnerShipsUI.Pharmacychain,"Store Pharmacy Operations");
+            helper.clickOnElement(PartnerShipsUI.Pharmacychain);
+            LoggerHandler.info("Clicked On Pharmacy supply chain");
+            Hooks.test.log(Status.PASS, "Clicked On Pharmacy supply chain");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Clicked On Pharmacy supply chain");
+            Hooks.test.log(Status.FAIL, "Not Clicked On Pharmacy supply chain");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Not Clicked On Pharmacy supply chain");
+        }
+    }
+
+
+    public void clickOnLocation() {
+        try {
+            helper.waitForElementToBeVisible(PartnerShipsUI.location, 20);
+            helper.softAssertions(PartnerShipsUI.location,"Please select");
+            helper.clickOnElement(PartnerShipsUI.location);
+            LoggerHandler.info("Clicked on location field");
+            Hooks.test.log(Status.PASS, "Clicked on location field");
+            helper.waitForElementToBeVisible(PartnerShipsUI.firstlocation, 20);
+            helper.softAssertions(PartnerShipsUI.firstlocation,"Gurgaon, Haryana, India (L5");
+            helper.clickOnElement(PartnerShipsUI.firstlocation);
+            LoggerHandler.info("Select the first checkbox for the location.");
+            Hooks.test.log(Status.PASS, "Select the first checkbox for the location.");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Clicked on location field and entered the first location");
+            Hooks.test.log(Status.FAIL, "Not Clicked on location field and entered the first location");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath,
+                    "Not Clicked on location field and entered the first location");
+        }
+    }
+
+
+    public void clickOnExperience() {
+        try {
+            helper.waitForElementToBeVisible(PartnerShipsUI.experience, 20);
+            helper.clickOnElement(PartnerShipsUI.experience);
+            LoggerHandler.info("Clicked on experience");
+            Hooks.test.log(Status.PASS, "Clicked on experience");
+            helper.waitForElementToBeVisible(PartnerShipsUI.freshers, 20);
+            helper.softAssertions(PartnerShipsUI.freshers,"Fresher");
+            helper.clickOnElement(PartnerShipsUI.freshers);
+            LoggerHandler.info("select the fresher");
+            Hooks.test.log(Status.PASS, "select the fresher");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Clicked on experience");
+            Hooks.test.log(Status.FAIL, "Not Clicked on experience");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Not Clicked on experience");
+        }
+    }
+
+
+    public void toFieldExperience() {
+        try {
+            helper.waitForElementToBeVisible(PartnerShipsUI.tofield, 20);
+            helper.clickOnElement(PartnerShipsUI.tofield);
+            LoggerHandler.info("Clicked on to field");
+            Hooks.test.log(Status.PASS, "Clicked on to field");
+            helper.waitForElementToBeVisible(PartnerShipsUI.idthree, 20);
+            helper.softAssertions(PartnerShipsUI.idthree,"3");
+            helper.clickOnElement(PartnerShipsUI.idthree);
+            LoggerHandler.info("Select id 3");
+            Hooks.test.log(Status.PASS, "Select id 3");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Clicked on To field and enter experience upto which year");
+            Hooks.test.log(Status.FAIL, "Not Clicked on To field and enter experience upto which year");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath,
+                    "Not Clicked on To field and enter experience upto which year");
+        }
+    }
+
+
+    public void selectEmployeeField() {
+        try {
+            helper.waitForElementToBeVisible(PartnerShipsUI.selectempfield, 20);
+            helper.softAssertions(PartnerShipsUI.career,"Careers");
+            helper.clickOnElement(PartnerShipsUI.selectempfield);
+            LoggerHandler.info("Clicked on Select Employee Type");
+            Hooks.test.log(Status.PASS, "Clicked on Select Employee Type");
+            helper.waitForElementToBeVisible(PartnerShipsUI.fulltime, 20);
+            helper.softAssertions(PartnerShipsUI.fulltime,"Full Time Employee");
+            helper.clickOnElement(PartnerShipsUI.fulltime);
+            LoggerHandler.info("Clicked on Full time");
+            Hooks.test.log(Status.PASS, "Clicked on Full time");
+            helper.waitForElementToBeVisible(PartnerShipsUI.button, 20);
+            helper.clickOnElement(PartnerShipsUI.button);
+            LoggerHandler.info("Click on the Search icon");
+            Hooks.test.log(Status.PASS, "Click on the Search icon");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Click on the Employee field");
+            Hooks.test.log(Status.FAIL, "Not Click on the Employee field");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Not Click on the Employee field");
+        }
+    }
+
+
+    public void clickOnApplyHere() {
+        try {
+            helper.waitForElementToBeVisible(PartnerShipsUI.applyhere, 20);
+            helper.softAssertions(PartnerShipsUI.applyhere,"APPLY HERE");
+            helper.clickOnElement(PartnerShipsUI.applyhere);
+            LoggerHandler.info("Click on apply here");
+            Hooks.test.log(Status.PASS, "Click on apply here");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Click on apply here");
+            Hooks.test.log(Status.FAIL, "Not Click on apply here");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Not Click on apply here");
+        }
+    }
+
+    
+    public void verifyLoginAndScreenshot() {
+        try {
+            helper.waitForElementToBeVisible(PartnerShipsUI.loginverify, 20);
+            Screenshots.captureScreenShot("Login");
+            LoggerHandler.info("Verified Login text and took Screenshot");
+            Hooks.test.log(Status.PASS, "Verified Login text and took Screenshot");
+        } catch (Exception e) {
+            LoggerHandler.error("Not Verified Login text and took Screenshot");
+            Hooks.test.log(Status.FAIL, "Not Verified Login text and took Screenshot");
+            String screenshortPath = Reporter.captureScreenShot("Screenshot and took Screenshot");
+            Hooks.test.addScreenCaptureFromPath(screenshortPath, "Not Verified Login text and took Screenshot");
+        }
+    }
+}

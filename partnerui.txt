@@ -1,0 +1,29 @@
+package uilocater;
+
+import org.openqa.selenium.By;
+public class PartnerShipsUI {
+	public static By updatecitycancel = By.xpath("//div[text()='Cancel']");
+    public static By partnership = By.xpath("(//a[@href='/corporate']/div)[1]");
+    public static By tailored = By.xpath("//span[text()='Tailored ']");
+    public static By Ourpolicies = By.xpath("//p[text()='Our Policies']");
+    public static By FakeJobsandFraud = By.xpath("(//div[@class='FooterSection__linksInnerContainer__vNhC2']/ul//a)[7]"); 
+    public static By Knowus = By.xpath("//h3[text()='Know Us']");
+    public static By career = By.xpath("//span[text()='Careers']");
+    public static By viewOpening = By.xpath("//a[@href='#culture']/following-sibling::a");
+    public static By inputfield = By.xpath("//label[@class='search-label']/following-sibling::input");
+    public static By selectdept = By.xpath("(//div[@class='text-holder group-tab multi-select-field active']/span/span)[1]");
+    // public static By Pharmacychain = By.xpath("(//div[@class='db-checkbox dropdown-item custom']/span/input/following-sibling::label)[1]");
+    public static By Pharmacychain = By.xpath("//label[@title='Store Pharmacy Operations']");
+    public static By location = By.xpath("(//div[@class='text-holder group-tab multi-select-field active']/*)[3]");
+    public static By firstlocation = By.xpath("//label[contains(@title,'Gurgaon, Haryana, India (L5')]");
+    public static By experience = By.xpath("(//div[@class='ng-input']/input)[2]");
+    public static By freshers = By.xpath("//div[@class='ng-option ng-option-marked']/span");
+    public static By tofield = By.xpath("(//div[@class='ng-input']/input)[3]");
+    // public static By idthree = By.id("a05503d795b7-3");
+   public static By idthree = By.xpath("//span[text()='3']");
+    public static By selectempfield = By.xpath("(//div[@class='ng-input']/input)[4]");
+    public static By fulltime = By.xpath("//div[@class='ng-option']/preceding-sibling::div");
+    public static By button = By.xpath("//div[@class='form-group col-md-1 search-btn-container']/button");
+    public static By applyhere = By.xpath("//div[@class='zeroth-container text-center']/button");
+    public static By loginverify = By.xpath("//div[@class='box p-50 clearfix']/h4");
+}
